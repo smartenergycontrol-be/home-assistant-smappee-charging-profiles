@@ -1,14 +1,7 @@
-import voluptuous as vol
-from homeassistant import config_entries
-from homeassistant.core import callback
-
-from .const import DOMAIN
+from .oauth import SmappeeApiClient
 
 class SmappeeChargingProfilesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    VERSION = 1
-
     async def async_step_user(self, user_input=None):
-        """Handle the initial step."""
         if user_input is None:
             return self.async_show_form(
                 step_id="user",
@@ -20,28 +13,16 @@ class SmappeeChargingProfilesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN
                 })
             )
 
-        # Example logic to handle form submission
+        # Authenticate with the API and get access and refresh tokens
+        api_client = SmappeeApiClient(user_input)
+        tokens = await api_client.authenticate()
+
+        # If authentication fails
+        if not tokens:
+            return self.async_show_form(step_id="user", errors={"base": "auth_failed"})
+
+        # Store the tokens in the config entry
+        user_input["access_token"] = tokens["access_token"]
+        user_input["refresh_token"] = tokens["refresh_token"]
+
         return self.async_create_entry(title="Smappee Charging Profiles", data=user_input)
-
-    @staticmethod
-    @callback
-    def async_get_options_flow(config_entry):
-        return SmappeeChargingProfilesOptionsFlowHandler(config_entry)
-
-
-class SmappeeChargingProfilesOptionsFlowHandler(config_entries.OptionsFlow):
-    """Handle the options flow."""
-
-    def __init__(self, config_entry):
-        self.config_entry = config_entry
-
-    async def async_step_init(self, user_input=None):
-        if user_input is None:
-            return self.async_show_form(
-                step_id="init",
-                data_schema=vol.Schema({
-                    vol.Optional("serial", default=self.config_entry.data.get("serial")): str,
-                })
-            )
-
-        return self.async_create_entry(title="", data=user_input)
