@@ -12,9 +12,4 @@ This Home Assistant integration allows you to manage charging profiles for Smapp
 
 ## Configuration
 
-Add the following to your `configuration.yaml`:
-
-```yaml
-smappee_charging_profiles:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
+Configuration is don when adding the integration trough the UI
