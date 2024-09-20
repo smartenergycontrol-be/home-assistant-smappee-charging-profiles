@@ -2,8 +2,9 @@
   "domain": "smappee_charging_profiles",
   "name": "Smappee Charging Profiles Integration",
   "version": "0.1",
-  "documentation": "https://your-documentation-url",
+  "documentation": "https://github.com/scruysberghs/home-assistant-smappee-charging-profiles",
   "requirements": [],
   "dependencies": [],
-  "codeowners": ["@yourgithubhandle"]
+  "config_flow": true,
+  "codeowners": ["@scruysberghs"]
 }
