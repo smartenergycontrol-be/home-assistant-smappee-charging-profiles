@@ -1,0 +1,9 @@
+{
+  "domain": "smappee_charging_profiles",
+  "name": "Smappee Charging Profiles Integration",
+  "version": "0.1",
+  "documentation": "https://your-documentation-url",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@yourgithubhandle"]
+}

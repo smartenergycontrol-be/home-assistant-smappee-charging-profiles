@@ -1,0 +1,12 @@
+set_charging_mode:
+  description: "Set the charging mode of a connector."
+  fields:
+    serial:
+      description: "Serial number of the charging station"
+      example: "6220001071"
+    mode:
+      description: "Charging mode to set (NORMAL, SMART)"
+      example: "NORMAL"
+    limit:
+      description: "Current limit in amperes"
+      example: 10
