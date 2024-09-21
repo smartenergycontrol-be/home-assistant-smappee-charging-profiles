@@ -25,7 +25,7 @@ Still too bad sensor values can not be read from the api in realtime (only 5 min
 
 I might add a ui element to set charging speed and select charging mode later. For now you can do that manualle using a input_number helper and an automation. Something like :
 
-Also, you need your serial number for the charger to make the service calls, wasn't able to find this in the api but you can find it in the Smappee app.
+
 
 ```
 input_number:
@@ -51,3 +51,4 @@ automation:
         mode: "NORMAL"  # You can adjust the mode based on your integration's needs
         limit: "{{ states('input_number.smappee_charging_speed') | int }}"
 ```
+Also, you need your serial number for the charger to make the service calls, wasn't able to find this in the api but you can find it in the Smappee app.
