@@ -3,7 +3,7 @@ from homeassistant import config_entries
 from homeassistant.core import callback
 import homeassistant.helpers.config_validation as cv
 
-from .oauth import SmappeeApiClient  # Ensure this import works
+from .oauth import OAuth2Client  # Ensure this import works
 from .const import DOMAIN  # Ensure const.py exists with DOMAIN defined
 
 class SmappeeChargingProfilesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -25,8 +25,8 @@ class SmappeeChargingProfilesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN
             )
 
         # Authenticate with the API and get access and refresh tokens
-        api_client = SmappeeApiClient(user_input)
-        tokens = await api_client.authenticate()
+        oauth_client = OAuth2Client(user_input)
+        tokens = await oauth_client.authenticate()
 
         if not tokens:
             return self.async_show_form(step_id="user", errors={"base": "auth_failed"})
