@@ -1,4 +1,5 @@
 from .oauth import SmappeeApiClient
+from .const import DOMAIN  # Make sure you have a const.py file with your domain defined
 
 class SmappeeChargingProfilesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(self, user_input=None):
