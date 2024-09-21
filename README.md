@@ -20,10 +20,10 @@ You have to enter smappee api credentials :
 - username (not the email adress)
 - password (same a in web portal or app)
 
-For now the integration will onle give you a service call to set the charging speed. Other functionality can easily be addedd to make this as full featured as the smappee app.
+For now the integration will only give you a service call to set the charging speed. Other functionality can easily be addedd to make this as full featured as the smappee app.
 Still too bad sensor values can not be read from the api in realtime (only 5 min averages).
 
-I might add a ui element to set charging speed and select charging mode later. For now you can do that manualle using a input_number helper and an automation. Something like :
+I might add a ui element to set charging speed and select charging mode later. For now you can do that manually using a input_number helper and an automation. Something like :
 
 
 
