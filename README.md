@@ -20,7 +20,34 @@ You have to enter smappee api credentials :
 - username (not the email adress)
 - password (same a in web portal or app)
 
-For now the integration will onle give you a service call to set the charging speed. Other functionality can easily be addedd to make this as full features as the smappee app... 
-Still too bad sensor values can not be read from the api in realtime (only 5 min averages)
+For now the integration will onle give you a service call to set the charging speed. Other functionality can easily be addedd to make this as full featured as the smappee app.
+Still too bad sensor values can not be read from the api in realtime (only 5 min averages).
 
+I might add a ui element to set charging speed and select charging mode later. For now you can do that manualle using a input_number helper and an automation. Something like :
 
+Also, you need your serial number for the charger to make the service calls, wasn't able to find this in the api but you can find it in the Smappee app.
+
+```
+input_number:
+  smappee_charging_speed:
+    name: Charging Speed
+    min: 0
+    max: 32
+    step: 1
+    unit_of_measurement: "A"
+    icon: mdi:flash
+```
+
+```
+automation:
+  - alias: Set Charging Speed via Slider
+    trigger:
+      platform: state
+      entity_id: input_number.smappee_charging_speed
+    action:
+      service: smappee_charging_profiles.set_charging_mode
+      data:
+        serial: "YOUR_SERIAL_NUMBER"  # Replace with your charging station serial
+        mode: "NORMAL"  # You can adjust the mode based on your integration's needs
+        limit: "{{ states('input_number.smappee_charging_speed') | int }}"
+```
