@@ -2,7 +2,6 @@
     "name": "Smappee Charging Profiles",
     "content_in_root": false,
     "domains": ["sensor"],
-    "country": "Worldwide",
     "homeassistant": "2023.9.0",
     "render_readme": true
   }
