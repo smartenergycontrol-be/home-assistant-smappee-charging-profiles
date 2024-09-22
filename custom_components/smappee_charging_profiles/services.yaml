@@ -3,7 +3,7 @@ set_charging_mode:
   fields:
     serial:
       description: "Serial number of the charging station"
-      example: "6220001071"
+      example: "6220001089"
     mode:
       description: "Charging mode to set (NORMAL, SMART)"
       example: "NORMAL"
