@@ -10,7 +10,7 @@ This Home Assistant integration allows you to manage charging profiles for Smapp
 3. Add this repository: `https://github.com/scruysberghs/home-assistant-smappee-charging-profiles`.
 4. Install the integration.
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=scruysberghs&repository=https%3A%2F%2Fgithub.com%2Fscruysberghs%2Fhome-assistant-smappee-charging-profiles&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=smartenergycontrol-be&repository=https%3A%2F%2Fgithub.com%2Fsmartenergycontrol-be%2Fhome-assistant-smappee-charging-profiles&category=integration)
 
 ## Configuration
 
