@@ -33,6 +33,9 @@ class SmappeeApiClient:
             async with aiohttp.ClientSession() as session:
                 response = await session.put(url, json=payload, headers=headers)
                 if response.status != 200:
+                    if response.status == 401:
+                        raise Exception("Token expired")
+                    
                     error_message = await response.text()
                     _LOGGER.error(f"Failed to set charging mode: {error_message}")
                     raise Exception(f"Error setting charging mode: {error_message}")
