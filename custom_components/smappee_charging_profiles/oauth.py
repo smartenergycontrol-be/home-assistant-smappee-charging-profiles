@@ -125,9 +125,7 @@ class OAuth2Client:
 
     async def ensure_token_valid(self):
         """Ensure the access token is valid, refreshing if necessary."""
-        if not self.access_token or (
-            self.token_expires_at and time.time() >= self.token_expires_at
-        ):
+        if not self.access_token or not self.token_expires_at or time.time() >= self.token_expires_at:
             _LOGGER.debug("Access token expired or missing, refreshing...")
             await self._refresh_token()
         else:
