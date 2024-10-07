@@ -19,12 +19,21 @@ class SmappeeApiClient:
             "Authorization": f"Bearer {self.oauth_client.access_token}",
             "Content-Type": "application/json",
         }
+
+        limitPercetage = True if mode == "NORMAL_PERCENTAGE" else False
+        if limitPercetage:
+            mode = "NORMAL"
+
+
         # Create the base payload with the mode
         payload = {"mode": mode}
 
         # Add the limit only if the mode is NORMAL
         if mode == "NORMAL":
-            payload["limit"] = {"unit": "AMPERE", "value": limit}
+            if limitPercetage:
+                payload["limit"] = {"unit": "PERCENTAGE", "value": limit}
+            else:
+                payload["limit"] = {"unit": "AMPERE", "value": limit}
 
         _LOGGER.debug(f"Sending request to {url} with payload {payload}")
 
