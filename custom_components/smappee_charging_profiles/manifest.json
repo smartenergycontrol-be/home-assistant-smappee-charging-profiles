@@ -6,5 +6,6 @@
   "requirements": [],
   "dependencies": [],
   "config_flow": true,
-  "codeowners": ["@scruysberghs"]
+  "codeowners": ["@scruysberghs"],
+  "loggers": ["custom_components.smappee_charging_profiles"]
 }

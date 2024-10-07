@@ -130,3 +130,5 @@ class OAuth2Client:
         ):
             _LOGGER.debug("Access token expired or missing, refreshing...")
             await self._refresh_token()
+        else:
+            _LOGGER.debug("Access token is still valid until %s", self.token_expires_at)
