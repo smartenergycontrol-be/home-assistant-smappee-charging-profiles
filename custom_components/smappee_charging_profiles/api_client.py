@@ -20,8 +20,8 @@ class SmappeeApiClient:
             "Content-Type": "application/json",
         }
 
-        limitPercetage = True if mode == "NORMAL_PERCENTAGE" else False
-        if limitPercetage:
+        limitPercentage = True if mode == "NORMAL_PERCENTAGE" else False
+        if limitPercentage:
             mode = "NORMAL"
 
 
@@ -30,7 +30,7 @@ class SmappeeApiClient:
 
         # Add the limit only if the mode is NORMAL
         if mode == "NORMAL":
-            if limitPercetage:
+            if limitPercentage:
                 payload["limit"] = {"unit": "PERCENTAGE", "value": limit}
             else:
                 payload["limit"] = {"unit": "AMPERE", "value": limit}
