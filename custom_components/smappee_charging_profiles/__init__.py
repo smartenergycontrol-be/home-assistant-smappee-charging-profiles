@@ -28,7 +28,7 @@ async def async_setup_entry(hass: HomeAssistant, entry):
         """Handle the action to set the charging mode."""
         serial = call.data.get("serial")
         mode = call.data.get("mode")
-        limit = call.data.get("limit", 0)
+        limit = call.data.get("limit", 0.0)
 
         _LOGGER.debug(f"Setting charging mode for serial {serial} to {mode} with limit {limit}.")
         
