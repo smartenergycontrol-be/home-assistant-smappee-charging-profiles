@@ -19,6 +19,7 @@ class OAuth2Client:
         self.username = data.get("username")
         self.password = data.get("password")
         self.token_expires_at = None  # Store the expiry time
+        self.max_refresh_attempts = 3
 
     async def authenticate(self):
         """Authenticate using client credentials and return tokens."""
