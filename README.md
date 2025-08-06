@@ -50,6 +50,7 @@ automation:
       data:
         serial: "YOUR_SERIAL_NUMBER"  # Replace with your charging station serial
         mode: "NORMAL"  # You can adjust the mode based on your integration's needs
+        connector: 1    # Connector number
         limit: "{{ states('input_number.smappee_charging_speed') | int }}"
 ```
 Also, you need your serial number for the charger to make the service calls, wasn't able to find this in the api but you can find it in the Smappee app.

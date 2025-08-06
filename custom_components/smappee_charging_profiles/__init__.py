@@ -29,13 +29,14 @@ async def async_setup_entry(hass: HomeAssistant, entry):
         serial = call.data.get("serial")
         mode = call.data.get("mode")
         limit = call.data.get("limit", 0)
+        connector = call.data.get("connector", 1)
 
-        _LOGGER.debug(f"Setting charging mode for serial {serial} to {mode} with limit {limit}.")
+        _LOGGER.debug(f"Setting charging mode for serial {serial} to {mode} with limit {limit} on connector {connector}.")
         
         api_client = hass.data[DOMAIN][entry.entry_id]
     
         try:
-            await api_client.set_charging_mode(serial, mode, limit)
+            await api_client.set_charging_mode(serial, mode, limit, connector)
             _LOGGER.debug(f"Charging mode set successfully for {serial}")
         except Exception as e:
             _LOGGER.error(f"Failed to set charging mode for {serial}: {e}")

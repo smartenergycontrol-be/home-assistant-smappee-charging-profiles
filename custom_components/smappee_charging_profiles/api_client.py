@@ -9,21 +9,20 @@ class SmappeeApiClient:
         self.oauth_client = oauth_client
         self.base_url = "https://app1pub.smappee.net/dev/v3"
 
-    async def set_charging_mode(self, serial, mode, limit):
+    async def set_charging_mode(self, serial, mode, limit, connector):
         """Set the charging mode for the given serial number and connector."""
         # Ensure token is refreshed if needed
         await self.oauth_client.ensure_token_valid()
-
-        url = f"{self.base_url}/chargingstations/{serial}/connectors/1/mode"
-        headers = {
-            "Authorization": f"Bearer {self.oauth_client.access_token}",
-            "Content-Type": "application/json",
-        }
 
         limitPercentage = True if mode == "NORMAL_PERCENTAGE" else False
         if limitPercentage:
             mode = "NORMAL"
 
+        url = f"{self.base_url}/chargingstations/{serial}/connectors/{connector}/mode"
+        headers = {
+            "Authorization": f"Bearer {self.oauth_client.access_token}",
+            "Content-Type": "application/json",
+        }
 
         # Create the base payload with the mode
         payload = {"mode": mode}

@@ -7,6 +7,9 @@ set_charging_mode:
     mode:
       description: "Charging mode to set (NORMAL, NORMAL_PERCENTAGE, SMART, PAUSED)"
       example: "NORMAL"
+    connector:
+      description: "Connector number of charging station when there are multiple"
+    example: 1
     limit:
       description: "Current limit in amperes"
       example: 10
