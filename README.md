@@ -1,3 +1,5 @@
+!!!! Deprecated => I suggest using the https://github.com/myny-git/smappee_ev Home Assistant integration that has landed in the HACS store. 
+---------------------
 # home-assistant-smappee-charging-profiles
 # Smappee Charging Profiles Integration
 
